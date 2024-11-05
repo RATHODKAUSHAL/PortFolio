@@ -1,17 +1,18 @@
 import React from 'react';
 import './Navbar.css'
 import Logo from '../../assets/Logo.png'
+import resume from '../../../public/kaushal_Rathod_React_Developer.pdf'
 
 function Navbar() {
   return ( 
-    <div className='fixed w-full z-50'>
+    <div className='fixed w-full z-50 shadow-2xl'>
       <nav className="flex justify-between items-center w-full h-20 bg-gradient-to-r from-black to-gray-800 px-10 shadow-md">
         {/* Left Section - Logo */}
         <div className="animate-fadeInLeft flex flex-row items-center">
           <a href="">
             <img className="h-24 transition-transform duration-300 ease-in-out transform hover:scale-110" src={Logo} alt="Logo" />
           </a>
-          <a className='text-white text-sm transition-transform duration-300 ease-in-out hover:text-blue-600 transform hover:scale-110 cursor-pointer'>kaushal.rathod.dev1@gmail.com</a>
+          <a href='mailto:kaushal.rathod.dev1@gmail.com' className='text-white text-sm transition-transform duration-300 ease-in-out hover:text-blue-600 transform hover:scale-110 cursor-pointer'>kaushal.rathod.dev1@gmail.com</a>
         </div>
 
         {/* Middle Section - Navigation Links */}
@@ -63,9 +64,9 @@ function Navbar() {
         {/* Right Section - Hire Me Button */}
         <div className="animate-fadeInRight">
           <a href="https://www.linkedin.com/in/kaushal-rathod-/" target="_blank" rel="noopener noreferrer">
-            <button className="bg-black text-white hover:bg-gray-800 font-medium rounded-md w-24 py-2 transition-transform duration-300 ease-in-out transform hover:scale-110">
+            <a href={resume} target='_blank' className="bg-black text-white hover:bg-gray-800 font-medium rounded-md w-24 px-4 py-2 transition-transform duration-300 ease-in-out transform hover:scale-110">
               Hire Me!
-            </button>
+            </a>
           </a>
         </div>
       </nav>

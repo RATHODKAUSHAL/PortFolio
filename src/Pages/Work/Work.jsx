@@ -1,10 +1,13 @@
-import React from 'react';
-import FleetSathi from '../../assets/FleetSathi.png'; // Add paths for other images as needed
-import TruckMeru from '../../assets/TruckMeru.png'
-import SnapStore from '../../assets/SnapStore.png'
+import React, { useState } from 'react';
+import FleetSathi from '../../assets/FleetSathi.png';
+import TruckMeru from '../../assets/TruckMeru.png';
+import SnapStore from '../../assets/SnapStore.png';
 
 const Work = () => {
-  // Array of project data
+  // State to keep track of the selected category
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  // Array of project data with categories
   const projects = [
     {
       id: 1,
@@ -12,30 +15,39 @@ const Work = () => {
       title: 'Fleet-Sathi',
       description: 'Simplify, Manage, and Grow Your Transport Business',
       link: '#',
+      category: 'Services',
     },
     {
       id: 2,
-      image: TruckMeru, // Replace with actual image paths
+      image: TruckMeru,
       title: 'Truck-Meru',
       description: 'A brief description of Project Two',
       link: '#',
+      category: 'Services',
     },
     {
       id: 3,
-      image: SnapStore, // Replace with actual image paths
+      image: SnapStore,
       title: 'SnapStore',
       description: 'Snapstore An E-commerce Website',
       link: 'https://github.com/RATHODKAUSHAL/SnapStore',
+      category: 'E-commerce',
     },
     {
       id: 4,
-      image: FleetSathi, // Replace with actual image paths
+      image: FleetSathi,
       title: 'Project Three',
       description: 'A brief description of Project Three',
       link: '#',
+      category: 'Other',
     },
-    // Add more project objects as needed
   ];
+
+  // Filter projects based on selected category
+  const filteredProjects =
+    selectedCategory === 'All'
+      ? projects
+      : projects.filter((project) => project.category === selectedCategory);
 
   return (
     <section className="work py-10 bg-gray-900">
@@ -52,20 +64,35 @@ const Work = () => {
           </p>
         </div>
         <div className="flex flex-row items-center gap-5 justify-center mb-8">
-          <button className="px-5 py-3 rounded-full bg-gray-900 text-white text-lg hover:bg-gray-700 transition duration-300">
+          <button
+            onClick={() => setSelectedCategory('All')}
+            className={`px-5 py-3 rounded-full text-lg transition duration-300 ${
+              selectedCategory === 'All' ? 'bg-blue-600 text-white' : 'bg-gray-900 text-white hover:bg-gray-700'
+            }`}
+          >
             All
           </button>
-          <button className="px-5 py-3 rounded-full bg-gray-900 text-white text-lg hover:bg-gray-700 transition duration-300">
+          <button
+            onClick={() => setSelectedCategory('Services')}
+            className={`px-5 py-3 rounded-full text-lg transition duration-300 ${
+              selectedCategory === 'Services' ? 'bg-blue-600 text-white' : 'bg-gray-900 text-white hover:bg-gray-700'
+            }`}
+          >
             Services
           </button>
-          <button className="px-5 py-3 rounded-full bg-gray-900 text-white text-lg hover:bg-gray-700 transition duration-300">
+          <button
+            onClick={() => setSelectedCategory('E-commerce')}
+            className={`px-5 py-3 rounded-full text-lg transition duration-300 ${
+              selectedCategory === 'E-commerce' ? 'bg-blue-600 text-white' : 'bg-gray-900 text-white hover:bg-gray-700'
+            }`}
+          >
             E-commerce
           </button>
         </div>
 
         {/* Project Cards Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {projects.map((project) => (
+          {filteredProjects.map((project) => (
             <div
               key={project.id}
               className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105"

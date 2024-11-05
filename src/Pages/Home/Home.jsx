@@ -1,10 +1,15 @@
 import React from 'react';
 import boy_laptop from '../../../src/assets/boy_laptop.jpg';
+import resume from '../../../public/kaushal_Rathod_React_Developer.pdf'
 import About from '../About/About';
 import Fade from 'react-reveal/Fade';
 import Slide from 'react-reveal/Slide';
 import Zoom from 'react-reveal/Zoom';
 import Work from '../Work/Work';
+import Resume from '../Resume/Resume';
+import Skill from '../Skill/Skill';
+import Contact from '../Contact/Contact';
+import Footer from '../../components/Footer/Footer';
 
 const Home = () => {
   return (
@@ -20,7 +25,7 @@ const Home = () => {
               From crafting efficient code to building seamless user experiences, I'm dedicated to creating powerful solutions that connect people and enhance their online interactions.
             </p>
             <div>
-              <a href="your_resume_link.pdf">
+              <a href={resume} target='_blank'>
                 <button className="bg-black text-white hover:bg-gray-800 font-medium rounded-md w-48 py-2 transition transform hover:scale-105 duration-300">
                   Download Resume <i className="fa-solid fa-download"></i>
                 </button>
@@ -29,10 +34,10 @@ const Home = () => {
             
             {/* Social Icons */}
             <div className="flex justify-center md:justify-start mt-4 space-x-4">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/kaushal-rathod-/" target="_blank" rel="noopener noreferrer">
                 <i className="fa-brands fa-linkedin text-black fa-xl transition transform hover:text-gray-700 hover:scale-110"></i>
               </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/RATHODKAUSHAL" target="_blank" rel="noopener noreferrer">
                 <i className="fa-brands fa-github text-black fa-xl transition transform hover:text-gray-700 hover:scale-110"></i>
               </a>
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
@@ -57,11 +62,12 @@ const Home = () => {
       {/* "About" Section */}
       <Zoom>
         <About />
-      </Zoom>
-      <Zoom>
         <Work />
+        <Resume />
+        <Skill />
+        <Contact />
+        <Footer/>
       </Zoom>
-
     </section>
   );
 }
