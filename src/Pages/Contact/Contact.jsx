@@ -2,9 +2,9 @@ import React from 'react';
 
 const Contact = () => {
   return (
-    <div className="bg-gray-900 h-screen flex flex-col items-center py-12 px-6">
+    <div className="bg-[#3E3E70] h-screen flex flex-col items-center py-12 px-6" id='contact'>
       {/* Heading */}
-      <h1 className="text-center text-gray-100 text-5xl font-bold mb-12 animate__animated animate__fadeIn">
+      <h1 className="text-center text-white text-5xl font-bold mb-12 animate__animated animate__fadeIn">
         Contact Me
       </h1>
 
@@ -12,9 +12,9 @@ const Contact = () => {
       <div className="flex flex-col md:flex-row items-center justify-center gap-10 w-full max-w-4xl">
         
         {/* Contact Information Card */}
-        <div className="bg-gray-800 rounded-lg shadow-lg p-8 w-full md:w-1/2 text-gray-100">
+        <div className="bg-white border-2 border-[#078D84] rounded-lg shadow-lg p-8 w-full md:w-1/2">
           <h2 className="text-3xl font-semibold mb-4">Get in Touch</h2>
-          <p className="mb-6 text-gray-300">
+          <p className="mb-6">
             Feel free to reach out via email or phone. I’m always open to discussing new projects or opportunities.
           </p>
           <div className="space-y-4">
@@ -73,7 +73,7 @@ const Contact = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 transition-colors duration-300 py-2 rounded-md font-semibold text-gray-100"
+              className="w-full bg-[#078D84] hover:bg-[#216864b0] transition-colors duration-300 py-2 rounded-md font-semibold text-gray-100"
             >
               Send Message
             </button>

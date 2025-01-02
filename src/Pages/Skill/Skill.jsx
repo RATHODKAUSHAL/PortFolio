@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaGitAlt, FaDatabase, FaBitbucket, FaLaravel } from 'react-icons/fa';
-import { SiExpress } from "react-icons/si";
+import { SiExpress, SiNestjs, SiNextdotjs } from "react-icons/si";
 import { DiMysql, DiPostgresql } from "react-icons/di";
 import { RiTailwindCssFill } from "react-icons/ri";
 const Skill = () => {
 
 
   return (
-    <div className="bg-gray-100 py-6 overflow-hidden">
+    <div className="bg-gray-100 py-6 overflow-hidden" id='skills'>
       <div>
         <h1 className="text-center text-gray-700 text-5xl font-bold mb-6 animate__animated animate__fadeIn">
           My Skills
@@ -27,6 +27,7 @@ const Skill = () => {
           <SkillItem Icon={FaJs} skill="JavaScript" color="text-yellow-500" />
           <SkillItem Icon={FaGitAlt} skill="Git" color="text-red-500" />
           <SkillItem Icon={FaDatabase} skill="MongoDB" color="text-green-600" />
+          <SkillItem Icon={SiNextdotjs} skill="Nextjs" color="text-gray-600" />
           {/* Duplicate items for seamless scroll */}
 
           <SkillItem Icon={SiExpress} skill="Express" color="text-green-500" />
@@ -34,7 +35,7 @@ const Skill = () => {
           <SkillItem Icon={FaLaravel} skill="Laravel" color="text-orange-500" />
           <SkillItem Icon={DiMysql} skill="Mysql" color="text-blue-400" />
           <SkillItem Icon={DiPostgresql} skill="Postgresql" color="text-yellow-500" />
-          <SkillItem Icon={RiTailwindCssFill} skill="Tailwind" color="text-red-500" />
+          <SkillItem Icon={RiTailwindCssFill} skill="Tailwind" color="text-blue-400" />
         </div>
       </div>
     </div>

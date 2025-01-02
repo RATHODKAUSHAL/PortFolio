@@ -10,6 +10,7 @@ import Resume from '../Resume/Resume';
 import Skill from '../Skill/Skill';
 import Contact from '../Contact/Contact';
 import Footer from '../../components/Footer/Footer';
+import BackToTop from '../../components/BackTop/BackToTop';
 
 const Home = () => {
   return (
@@ -20,13 +21,13 @@ const Home = () => {
         <Fade left>
           <div className="md:w-1/2 mb-6 md:mb-0 flex flex-col text-center md:text-left relative md:left-20">
             <h1 className="text-4xl font-bold text-gray-800">I am Kaushal Rathod 👋</h1>
-            <h2 className="text-5xl font-semibold mb-4 text-gray-700 animate-pulse">Full-Stack Developer</h2>
+            <h2 className="text-5xl font-semibold mb-4 text-gray-700 animate-pulse">FullStack Developer</h2>
             <p className="text-xl mb-6 text-gray-600">
               From crafting efficient code to building seamless user experiences, I'm dedicated to creating powerful solutions that connect people and enhance their online interactions.
             </p>
             <div>
               <a href={resume} target='_blank'>
-                <button className="bg-black text-white hover:bg-gray-800 font-medium rounded-md w-48 py-2 transition transform hover:scale-105 duration-300">
+                <button className="bg-white border-2 border-[#078D84] text-[#078D84] font-medium rounded-md w-48 py-2 transition transform hover:scale-105 duration-300">
                   Download Resume <i className="fa-solid fa-download"></i>
                 </button>
               </a>
@@ -51,13 +52,14 @@ const Home = () => {
         <Slide right>
           <div className="md:w-1/2 flex justify-center md:justify-end relative md:right-28">
             <img
-              className="h-1/4 w-1/2 -rotate-3 hover:rotate-0 hover:border-gray-900 border-4 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 ease-in-out"
+              className="h-1/4 w-1/2 -rotate-3 hover:rotate-0 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 ease-in-out"
               src={boy_laptop} 
               alt="Kaushal Rathod working on a laptop"
             />
           </div> 
         </Slide>
       </div>
+     
 
       {/* "About" Section */}
       <Zoom>
@@ -68,6 +70,7 @@ const Home = () => {
         <Contact />
         <Footer/>
       </Zoom>
+      <BackToTop/>
     </section>
   );
 }
