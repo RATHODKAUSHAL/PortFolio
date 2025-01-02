@@ -1,6 +1,6 @@
 import React from 'react';
 import boy_laptop from '../../../src/assets/boy_laptop.jpg';
-import resume from '../../../public/kaushal_Rathod_React_Developer.pdf'
+import resume from '../../assets/kaushal_Rathod_React_Developer.pdf'
 import About from '../About/About';
 import Fade from 'react-reveal/Fade';
 import Slide from 'react-reveal/Slide';
