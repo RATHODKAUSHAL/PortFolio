@@ -1,61 +1,137 @@
 import React, { useState } from 'react';
-import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaGitAlt, FaDatabase, FaBitbucket, FaLaravel } from 'react-icons/fa';
-import { SiExpress, SiNestjs, SiNextdotjs } from "react-icons/si";
-import { DiMysql, DiPostgresql } from "react-icons/di";
-import { RiTailwindCssFill } from "react-icons/ri";
-const Skill = () => {
+import react from '../../assets/react.png'
+import nextjs from '../../assets/nextjs.png'
+import HTML from '../../assets/HTML5.png'
+import Css from '../../assets/CSS.png'
+import TS from '../../assets/TS.jpeg'
+import VUE from '../../assets/VUE.png'
+import Redux from '../../assets/Redux.png'
+import JS from '../../assets/JS.png'
+import Nodejs from '../../assets/Nodejs.png'
+import Express from '../../assets/Express.png'
+import MongoDB from '../../assets/MongoDB.png'
+import MySQL from '../../assets/Mysql.png'
+import PostgreSQL from '../../assets/Postgresql.png'
+import Postman from '../../assets/Postman.png'
+import laravel from '../../assets/laravel.png'
 
+const Skill = () => {
+  const [activeSection, setActiveSection] = useState('Frontend');
+
+  const frontendSkills = [
+    { name: 'React', icon: react },
+    { name: 'Next JS', icon: nextjs },
+    { name: 'HTML', icon: HTML },
+    { name: 'CSS', icon: Css },
+    { name: 'TypeScript', icon: TS },
+    { name: 'Vue.js', icon: VUE },
+    { name: 'Redux', icon: Redux },
+    { name: 'JS', icon: JS },
+  ];
+
+  const backendSkills = [
+    { name: 'Node.js', icon: Nodejs },
+    { name: 'Express.js', icon: Express },
+    { name: 'Laravel', icon: laravel },
+  ];
+
+  const mobileSkills = [
+    { name: 'React Native', icon: react },
+  ];
+
+  const database = [
+    { name: 'MongoDB', icon: MongoDB },
+    { name: 'MySQL', icon: MySQL },
+    { name: 'PostgreSQL', icon: PostgreSQL },
+  ];
+
+  const AutomationTesting = [
+    { name: 'Postman', icon: Postman },
+  ];
+
+  const handleSectionToggle = (section) => {
+    setActiveSection((prevSection) => (prevSection === section ? '' : section));
+  };
+
+  const renderSkills = () => {
+    switch (activeSection) {
+      case 'Frontend':
+        return frontendSkills;
+      case 'Backend':
+        return backendSkills;
+      case 'Mobile Application Development':
+        return mobileSkills;
+      case 'Database':
+        return database;
+      case 'Automation Testing':
+        return AutomationTesting;
+      default:
+        return [];
+    }
+  };
 
   return (
-    <div className="bg-gray-100 py-6 overflow-hidden" id='skills'>
-      <div>
-        <h1 className="text-center text-gray-700 text-5xl font-bold mb-6 animate__animated animate__fadeIn">
-          My Skills
-        </h1>
+    <div>
+      <div className='flex items-center justify-center m-10 text-3xl font-bold'>
+        <h2>Skills</h2>
       </div>
-      <div
-        className="relative flex py-10 justify-center overflow-hidden whitespace-nowrap"
-      >
-        <div
-          className={`flex items-center  gap-10 transition-transform duration-500`}
-        >
-          {/* Skill icons with colors */}
-          <SkillItem Icon={FaReact} skill="React" color="text-blue-700" />
-          <SkillItem Icon={FaNodeJs} skill="Node.js" color="text-green-700" />
-          <SkillItem Icon={FaHtml5} skill="HTML5" color="text-orange-600" />
-          <SkillItem Icon={FaCss3Alt} skill="CSS3" color="text-blue-700" />
-          <SkillItem Icon={FaJs} skill="JavaScript" color="text-yellow-500" />
-          <SkillItem Icon={FaGitAlt} skill="Git" color="text-red-500" />
-          <SkillItem Icon={FaDatabase} skill="MongoDB" color="text-green-600" />
-          <SkillItem Icon={SiNextdotjs} skill="Nextjs" color="text-gray-600" />
-          {/* Duplicate items for seamless scroll */}
+      <div className="flex mx-40 mb-10 bg-white rounded-md">
+      
+      {/* Sidebar */}
+      <aside className="w-1/4 bg-gray-50 border-r p-4">
+        <ul className="space-y-4">
+          <li
+            className={`text-lg font-semibold text-gray-700 cursor-pointer ${activeSection === 'Frontend' ? 'bg-green-200 p-2 rounded-md' : ''}`}
+            onClick={() => handleSectionToggle('Frontend')}
+          >
+            Frontend
+          </li>
+          <li
+            className={`text-lg font-semibold text-gray-700 cursor-pointer ${activeSection === 'Backend' ? 'bg-green-200 p-2 rounded-md' : ''}`}
+            onClick={() => handleSectionToggle('Backend')}
+          >
+            Backend
+          </li>
+          <li
+            className={`text-lg font-semibold text-gray-700 cursor-pointer ${activeSection === 'Mobile Application Development' ? 'bg-green-200 p-2 rounded-md' : ''}`}
+            onClick={() => handleSectionToggle('Mobile Application Development')}
+          >
+            Mobile Application Development
+          </li>
+          <li
+            className={`text-lg font-semibold text-gray-700 cursor-pointer ${activeSection === 'Database' ? 'bg-green-200 p-2 rounded-md' : ''}`}
+            onClick={() => handleSectionToggle('Database')}
+          >
+            Database
+          </li>
+          <li
+            className={`text-lg font-semibold text-gray-700 cursor-pointer ${activeSection === 'Automation Testing' ? 'bg-green-200 p-2 rounded-md' : ''}`}
+            onClick={() => handleSectionToggle('Automation Testing')}
+          >
+            Automation Testing
+          </li>
+        </ul>
+      </aside>
 
-          <SkillItem Icon={SiExpress} skill="Express" color="text-green-500" />
-          <SkillItem Icon={FaBitbucket} skill="Bitbucket" color="text-green-500" />
-          <SkillItem Icon={FaLaravel} skill="Laravel" color="text-orange-500" />
-          <SkillItem Icon={DiMysql} skill="Mysql" color="text-blue-400" />
-          <SkillItem Icon={DiPostgresql} skill="Postgresql" color="text-yellow-500" />
-          <SkillItem Icon={RiTailwindCssFill} skill="Tailwind" color="text-blue-400" />
+      {/* Main Content */}
+      <main className="w-3/4 p-6 ">
+        <h1 className="text-2xl font-bold mb-6">{activeSection}</h1>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {renderSkills().map((skill, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center bg-white shadow-lg rounded-lg p-4"
+            >
+              <img className="w-20" src={skill.icon} alt="" />
+             
+              <p className="mt-2 text-lg font-semibold">{skill.name}</p>
+            </div>
+          ))}
         </div>
-      </div>
+      </main>
+    </div>
     </div>
   );
 };
-
-// Helper function to get current scroll position
-const getScrollPosition = () => {
-  const scrollAmount = 10; // Amount to scroll in pixels
-  const maxScroll = scrollAmount * 12; // Total scroll amount (adjust based on your icon count)
-  const position = (Date.now() / 100) % maxScroll; // Creates a smooth scroll effect
-  return position;
-};
-
-// Helper component for each skill item
-const SkillItem = ({ Icon, skill, color }) => (
-  <div className="flex flex-col items-center text-gray-700 min-w-max">
-    <Icon size={40} className={`mb-2 ${color}`} /> {/* Apply color class */}
-    <span className="text-lg">{skill}</span>
-  </div>
-);
 
 export default Skill;
