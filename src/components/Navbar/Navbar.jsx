@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Navbar.css';
-import resume from '../../../src/assets/kaushal_Rathod_React_Developer.pdf'
+import resume from '../../../src/assets/Kaushal_Rathod_React_Developer.pdf'
 
 function Navbar() {
   const [isSelect, setIsSelect] = useState(null)
